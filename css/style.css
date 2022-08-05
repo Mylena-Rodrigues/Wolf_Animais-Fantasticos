@@ -191,6 +191,28 @@ body {
   font-weight: bold;
 }
 
+/* Tab Navigation */
+.js .js-tab-content section {
+  display: none;
+}
+
+.js-tab-content section.ativo {
+  display: block !important;
+  animation: show 0.5s forwards;
+  /* fowards = manter a animação no estado final dela (to), caso contrário ela volta para o estado inicial (from) */
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+    transform: translate3d(-30px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 @media (max-width: 700px) {
   body {
     grid-template-columns: 1fr;
