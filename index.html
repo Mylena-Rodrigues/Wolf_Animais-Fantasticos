@@ -22,7 +22,7 @@
           <li><a href="#animais">Animais</a></li>
           <li><a href="#faq">Faq</a></li>
           <li><a href="#contato">Contato</a></li>
-          <li><a href="https://www.origamid.com/">Login →</a></li>
+          <li><a data-modal="abrir" href="login.html">Login →</a></li>
         </ul>
       </nav>
       <section class="grid-section animais js-scroll" id="animais">
@@ -223,6 +223,20 @@
         <p>Todos os direitos reservados.</p>
       </footer>
     </div>
+
+    <section class="modal-container" data-modal="container">
+      <div class="modal">
+        <button data-modal="fechar" class="fechar">X</button>
+        <form action="">
+          <label for="email">Email</label>
+          <input type="email" for="email" id="email" />
+          <label for="password">Senha</label>
+          <input type="password" for="password" id="password" />
+          <button type="submit">Entrar</button>
+        </form>
+      </div>
+    </section>
+
     <script type="module" src="js/script.js"></script>
   </body>
 </html>
