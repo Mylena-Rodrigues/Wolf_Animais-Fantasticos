@@ -143,6 +143,8 @@
 .dados li {
   margin-bottom: 1rem;
   font-family: Helvetica, Arial;
+  display: flex;
+  align-items: center;
 }
 
 .dados li::before {
@@ -152,6 +154,21 @@
   height: 10px;
   margin-right: 10px;
   background: #fb5;
+}
+
+[data-semana]::after {
+  display: inline-block;
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: #e54;
+  border-radius: 50%;
+  margin-left: 4px;
+  border: 0.5px solid #000;
+}
+
+[data-semana].open::after {
+  background: greenyellow;
 }
 
 .copy {
