@@ -1,6 +1,7 @@
 export default function initAccordion() {
     const accordionList = document.querySelectorAll('.js-accordion dt');
     const activeClass = 'ativo';
+
     if (accordionList.length) {
       function activeAccordion() {
         this.classList.toggle(activeClass);
@@ -12,5 +13,3 @@ export default function initAccordion() {
       });
     }
   }
-  
-  initAccordion();
