@@ -136,6 +136,7 @@
   grid-column: 2;
 }
 
+/* Dados */
 .dados {
   grid-column: 3;
 }
@@ -171,6 +172,15 @@
   background: greenyellow;
 }
 
+.btc-preco{
+  background: #3f4;
+  padding: .2rem .3rem;
+  font-weight: bold;
+  border-radius: 2px;
+  margin: 0px 5px;
+}
+
+/* Footer */
 .copy {
   grid-column: 3/5;
   margin-bottom: 2rem;
@@ -246,6 +256,7 @@
     max-height: 100px;
   }
 }
+
 
 @media (max-width: 700px) {
   .grid-container {

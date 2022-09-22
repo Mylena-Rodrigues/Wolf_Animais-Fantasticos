@@ -6,8 +6,10 @@ import initModal from './modules/modal.js';
 import initTooltip from './modules/tooltip.js';
 import initDropDownMenu from './modules/dropdown-menu.js';
 import initMenuMobile from './modules/menu-mobile.js';
-import initNumbersAnimation from './modules/numbers-animation.js';
 import initWorking from './modules/working.js';
+
+import initFetchAnimals from './modules/api/animals-fetch.js';
+import initFetchBitcoin from './modules/api/bitcoin-fetch.js';
 
 initSmoothScroll();
 initScrollAnimation();
@@ -17,5 +19,8 @@ initModal();
 initTooltip();
 initDropDownMenu();
 initMenuMobile();
-initNumbersAnimation();
 initWorking();
+
+//Fetch APIs
+initFetchAnimals();
+initFetchBitcoin();
