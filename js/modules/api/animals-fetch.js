@@ -1,6 +1,14 @@
+/* eslint-disable no-console */
 import initNumbersAnimation from '../numbers-animation.js';
 
 export default function initFetchAnimals() {
+  function createAnimal(animal) {
+    const div = document.createElement('div');
+    div.classList.add('numero-animal');
+    div.innerHTML = `<h3>${animal.specie}</h3><span data-numero> ${animal.total}</span>`;
+    return div;
+  }
+
   async function animalsFetch(url) {
     try {
       const animalsResponse = await fetch(url);
@@ -14,13 +22,6 @@ export default function initFetchAnimals() {
     } catch (erro) {
       console.error(erro);
     }
-  }
-
-  function createAnimal(animal) {
-    const div = document.createElement('div');
-    div.classList.add('numero-animal');
-    div.innerHTML = `<h3>${animal.specie}</h3><span data-numero> ${animal.total}</span>`;
-    return div;
   }
 
   animalsFetch('../../animals-api.json');

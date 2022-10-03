@@ -21,6 +21,6 @@ initDropDownMenu();
 initMenuMobile();
 initWorking();
 
-//Fetch APIs
+// Fetch APIs
 initFetchAnimals();
 initFetchBitcoin();

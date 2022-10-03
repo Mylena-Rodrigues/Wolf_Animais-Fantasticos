@@ -7,7 +7,7 @@ export default function initNumbersAnimation() {
       const inscremento = Math.floor(total / 100);
       let start = 0;
       const timer = setInterval(() => {
-        start = start + inscremento;
+        start += inscremento;
         numero.innerText = start;
         if (start > total) {
           numero.innerText = total;
@@ -17,15 +17,15 @@ export default function initNumbersAnimation() {
     });
   }
 
+  const observerTarget = document.querySelector('.numeros');
+  let observer;
   function handleMutation(mutation) {
     if (mutation[0].target.classList.contains('ativo')) {
       observer.disconnect();
       animaNumeros();
     }
   }
-
-  const observerTarget = document.querySelector('.numeros');
-  const observer = new MutationObserver(handleMutation);
+  observer = new MutationObserver(handleMutation);
 
   observer.observe(observerTarget, { attributes: true });
 }
