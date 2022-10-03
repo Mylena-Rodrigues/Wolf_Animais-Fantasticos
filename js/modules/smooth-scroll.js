@@ -1,34 +1,31 @@
-export default function initSmoothScroll() {
-  const linksInternos = document.querySelectorAll('.js-menu a[href^="#"]');
+export default class SmoothScroll {
+  constructor(links, options) {
+    this.linksInternos = document.querySelectorAll(links);
+    console.log(this.linksInternos);
+    if (options === undefined) {
+      this.options = { behavior: 'smooth', block: 'start' };
+    } else {
+      this.options = options;
+    }
 
-  function scrollToSection(event) {
+    this.scrollToSection = this.scrollToSection.bind(this);
+  }
+
+  scrollToSection(event) {
     event.preventDefault();
     const href = event.currentTarget.getAttribute('href');
     const section = document.querySelector(href);
-
-    section.scrollIntoView({
-      behavior: 'smooth', // desliza suavemente até o meio da sessão
-      block: 'start', // alinha o topo da sessão com o topo da tela
-    });
-
-    /** Scroll To
-            *** ScrollTo possui dois argumentos, o primeiro é o eixo x e o segundo é o eixo y
-
-            const top = section.offsetTop;
-
-            **Forma mais geral
-            window.scrollTo(0, top)
-
-            **Forma alternativa
-             window.scrollTo({
-                top: top,
-                behavior: 'smooth'
-            })
-
-            * */
+    section.scrollIntoView(this.options);
   }
 
-  linksInternos.forEach((link) => {
-    link.addEventListener('click', scrollToSection);
-  });
+  addLinkEvent() {
+    this.linksInternos.forEach((link) => {
+      link.addEventListener('click', this.scrollToSection);
+    });
+  }
+
+  init() {
+    this.addLinkEvent();
+    return this;
+  }
 }
