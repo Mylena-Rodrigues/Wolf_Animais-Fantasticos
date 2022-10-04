@@ -5,7 +5,7 @@ import TabNav from './modules/tab-nav.js';
 import Modal from './modules/modal.js';
 import Tooltip from './modules/tooltip.js';
 import DropDownMenu from './modules/dropdown-menu.js';
-import initMenuMobile from './modules/menu-mobile.js';
+import MenuMobile from './modules/menu-mobile.js';
 import initWorking from './modules/working.js';
 
 import animalsFetch from './modules/api/animals-fetch.js';
@@ -39,7 +39,9 @@ tooltip.init();
 const dropDownMenu = new DropDownMenu('[data-dropdown]');
 dropDownMenu.init();
 
-initMenuMobile();
+const menuMobile = new MenuMobile('[data-menu="button"]', '[data-menu="list"');
+menuMobile.init();
+
 initWorking();
 
 // Fetch APIs
