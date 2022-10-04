@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import initNumbersAnimation from '../numbers-animation.js';
+import NumbersAnimation from '../numbers-animation.js';
 
 export default function initFetchAnimals() {
   function createAnimal(animal) {
@@ -18,7 +18,8 @@ export default function initFetchAnimals() {
         const divAnimal = createAnimal(animal);
         gridNumbers.appendChild(divAnimal);
       });
-      initNumbersAnimation();
+      const numbersAnimation = new NumbersAnimation('[data-numero]', '.numeros', 'ativo');
+      numbersAnimation.init();
     } catch (erro) {
       console.error(erro);
     }
