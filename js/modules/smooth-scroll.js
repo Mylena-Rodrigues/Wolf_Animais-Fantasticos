@@ -1,7 +1,6 @@
 export default class SmoothScroll {
   constructor(links, options) {
     this.linksInternos = document.querySelectorAll(links);
-    console.log(this.linksInternos);
     if (options === undefined) {
       this.options = { behavior: 'smooth', block: 'start' };
     } else {
