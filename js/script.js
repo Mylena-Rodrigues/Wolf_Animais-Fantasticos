@@ -8,7 +8,7 @@ import initDropDownMenu from './modules/dropdown-menu.js';
 import initMenuMobile from './modules/menu-mobile.js';
 import initWorking from './modules/working.js';
 
-import initFetchAnimals from './modules/api/animals-fetch.js';
+import animalsFetch from './modules/api/animals-fetch.js';
 import initFetchBitcoin from './modules/api/bitcoin-fetch.js';
 
 const smoothScroll = new SmoothScroll('[data-menu="list"] a[href^="#"]');
@@ -40,5 +40,5 @@ initMenuMobile();
 initWorking();
 
 // Fetch APIs
-initFetchAnimals();
+animalsFetch('../../animals-api.json', '.numeros-grid');
 initFetchBitcoin();
