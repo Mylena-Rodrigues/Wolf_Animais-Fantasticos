@@ -172,9 +172,9 @@
   background: greenyellow;
 }
 
-.btc-preco{
+.btc-preco {
   background: #3f4;
-  padding: .2rem .3rem;
+  padding: 0.2rem 0.3rem;
   font-weight: bold;
   border-radius: 2px;
   margin: 0px 5px;
@@ -194,20 +194,37 @@
 }
 
 /* Tab Navigation */
-.js .js-tab-content section {
+[data-tab='content'] section {
   display: none;
 }
 
-.js-tab-content section.ativo {
+[data-tab='content'] section.ativo {
   display: block !important;
-  animation: show 0.5s forwards;
-  /* fowards = manter a animação no estado final dela (to), caso contrário ela volta para o estado inicial (from) */
 }
 
-@keyframes show {
+[data-tab='content'] section.ativo.show-right {
+  animation: show-right 0.7s forwards;
+}
+
+[data-tab='content'] section.ativo.show-down {
+  animation: show-down 0.7s forwards;
+}
+
+@keyframes show-right {
   from {
     opacity: 0;
     transform: translate3d(-30px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes show-down {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -30px, 0);
   }
   to {
     opacity: 1;
@@ -256,7 +273,6 @@
     max-height: 100px;
   }
 }
-
 
 @media (max-width: 700px) {
   .grid-container {
