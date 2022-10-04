@@ -9,7 +9,7 @@ import initMenuMobile from './modules/menu-mobile.js';
 import initWorking from './modules/working.js';
 
 import animalsFetch from './modules/api/animals-fetch.js';
-import initFetchBitcoin from './modules/api/bitcoin-fetch.js';
+import bitcoinFetch from './modules/api/bitcoin-fetch.js';
 
 const smoothScroll = new SmoothScroll('[data-menu="list"] a[href^="#"]');
 smoothScroll.init();
@@ -41,4 +41,4 @@ initWorking();
 
 // Fetch APIs
 animalsFetch('../../animals-api.json', '.numeros-grid');
-initFetchBitcoin();
+bitcoinFetch('https://blockchain.info/ticker', '.btc-preco');
