@@ -10,7 +10,6 @@ export default class TabNav {
       section.classList.remove(this.activeClass);
     });
     const direcao = this.tabContent[index].dataset.anime;
-    console.log(direcao);
     this.tabContent[index].classList.add(this.activeClass, direcao);
   }
 
