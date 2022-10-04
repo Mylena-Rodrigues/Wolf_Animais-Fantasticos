@@ -1,23 +1,46 @@
-export default function initScrollAnimation() {
-  const sections = document.querySelectorAll('.js-scroll');
-  const halfWindow = window.innerHeight * 0.6;
-  function animateScroll() {
-    sections.forEach((section) => {
-      const sectionTop = section.getBoundingClientRect().top;
-      const isSectionVisible = sectionTop - halfWindow < 0;
-      if (isSectionVisible) section.classList.add('ativo');
-      else if (section.classList.contains('ativo')) {
-        section.classList.remove('ativo');
-      }
+import debounce from '../utils/debounce';
 
-      /* * Caso queira retirar a animação quando o usuário der scroll pra cima
-            else section.classList.remove('ativo');
-      * */
+export default class ScrollAnimation {
+  constructor(sections) {
+    this.sections = document.querySelectorAll(sections);
+    this.halfWindow = window.innerHeight * 0.6;
+    this.checkDistance = debounce(this.checkDistance.bind(this), 50);
+  }
+
+  // Pega a distância de cada item com relação ao topo do site
+  getDistance() {
+    this.distances = [...this.sections].map((section) => {
+      const offset = section.offsetTop;
+      return {
+        element: section,
+        offset: Math.floor(offset - this.halfWindow),
+      };
     });
   }
-  if (sections.length) {
-    animateScroll();
 
-    window.addEventListener('scroll', animateScroll);
+  // Verifica a distância em cada objeto
+  // Em relação ao scroll do site
+  checkDistance() {
+    this.distances.forEach((item) => {
+      if (window.pageYOffset > item.offset) {
+        item.element.classList.add('ativo');
+      } else if (item.element.classList.contains('ativo')) {
+        item.element.classList.remove('ativo');
+      }
+    });
+  }
+
+  // Remove o event listener
+  stop() {
+    window.removeEventListener('scroll', this.checkDistance);
+  }
+
+  init() {
+    if (this.sections.length) {
+      this.getDistance();
+      this.checkDistance();
+      window.addEventListener('scroll', this.checkDistance);
+    }
+    return this;
   }
 }
