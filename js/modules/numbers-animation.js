@@ -39,7 +39,7 @@ export default class NumbersAnimation {
   }
 
   init() {
-    if (this.numbersList.length && this.observerTarget && this.observerClass) {
+    if (this.numeros.length && this.observerTarget && this.observerClass) {
       this.addMutationObserver();
     }
     return this;
