@@ -6,7 +6,7 @@ import Modal from './modules/modal.js';
 import Tooltip from './modules/tooltip.js';
 import DropDownMenu from './modules/dropdown-menu.js';
 import MenuMobile from './modules/menu-mobile.js';
-import initWorking from './modules/working.js';
+import Working from './modules/working.js';
 
 import animalsFetch from './modules/api/animals-fetch.js';
 import bitcoinFetch from './modules/api/bitcoin-fetch.js';
@@ -42,7 +42,8 @@ dropDownMenu.init();
 const menuMobile = new MenuMobile('[data-menu="button"]', '[data-menu="list"');
 menuMobile.init();
 
-initWorking();
+const working = new Working('[data-semana]', 'open');
+working.init();
 
 // Fetch APIs
 animalsFetch('../../animals-api.json', '.numeros-grid');

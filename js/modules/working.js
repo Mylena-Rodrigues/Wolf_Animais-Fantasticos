@@ -1,18 +1,38 @@
-export default function initWorking() {}
+export default class Working {
+  constructor(working, activeClass) {
+    this.working = document.querySelector(working);
+    this.activeClass = activeClass;
+  }
 
-const working = document.querySelector('[data-semana]');
-const weekDays = working.dataset.semana.split(',').map(Number); // Utilizar o map(Number) em um array de string retorna automaticamente um array de int
-const times = working.dataset.horario.split(',').map(Number);
+  workingData() {
+    this.weekDays = this.working.dataset.semana.split(',').map(Number);
+    this.times = this.working.dataset.horario.split(',').map(Number);
+  }
 
-const nowDate = new Date();
-const now = {
-  weekDay: nowDate.getDay(),
-  time: nowDate.getHours(),
-};
+  nowData() {
+    const nowDate = new Date();
+    this.now = {
+      weekDay: nowDate.getDay(),
+      time: nowDate.getUTCHours() - 3,
+    };
+  }
 
-const isOpenDay = weekDays.indexOf(now.weekDay) !== -1;
-const isOpenHour = now.time >= times[0] && now.time < times[1];
+  isOpen() {
+    this.isOpenDay = this.weekDays.indexOf(this.now.weekDay) !== -1;
+    this.isOpenHour = this.now.time >= this.times[0] && this.now.time < this.times[1];
+    return this.isOpenDay && this.isOpenHour;
+  }
 
-if (isOpenDay && isOpenHour) {
-  working.classList.add('open');
+  activeOpen() {
+    if (this.isOpen) {
+      this.working.classList.add(this.activeClass);
+    }
+  }
+
+  init() {
+    this.workingData();
+    this.nowData();
+    this.activeOpen();
+    return this;
+  }
 }
