@@ -7,6 +7,7 @@ import Tooltip from './modules/tooltip.js';
 import DropDownMenu from './modules/dropdown-menu.js';
 import MenuMobile from './modules/menu-mobile.js';
 import Working from './modules/working.js';
+import SlideNav from './modules/slide-nav.js';
 
 import animalsFetch from './modules/api/animals-fetch.js';
 import bitcoinFetch from './modules/api/bitcoin-fetch.js';
@@ -44,6 +45,12 @@ menuMobile.init();
 
 const working = new Working('[data-semana]', 'open');
 working.init();
+
+const slide = new SlideNav('.slide', '.slide-wrapper', 0);
+slide.init();
+
+slide.addControl('.custom-controls');
+slide.addArrow('.prev', '.next');
 
 // Fetch APIs
 animalsFetch('../../animals-api.json', '.numeros-grid');
