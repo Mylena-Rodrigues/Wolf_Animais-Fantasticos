@@ -22,7 +22,8 @@
   border: 10px solid #fb5;
   box-shadow: 0 0 0 10px white;
   position: relative;
-  min-width: 300px;
+  min-width: 80vw;
+  max-width: 400px;
 }
 
 .fechar {
@@ -30,7 +31,7 @@
   height: 50px;
   border-radius: 50%;
   border: 4px solid white;
-  background-color: #e54;
+  background: #e54 url('../img/fechar.svg') no-repeat center center;
   position: absolute;
   top: -30px;
   right: -30px;
@@ -51,7 +52,6 @@
 .modal input {
   width: 100%;
   padding: 0.7rem 0.5rem;
-  box-sizing: border-box;
 }
 
 .modal button[type='submit'] {
